@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rikaz/src/core/component/states/empty_state.dart';
 import 'package:rikaz/src/core/component/states/loading_state.dart';
 import 'package:rikaz/src/core/component/states/noInternet_state.dart';
@@ -9,6 +10,7 @@ import 'package:rikaz/src/core/constants/colors_app.dart';
 import 'package:rikaz/src/data/data_cubit/data_cubit.dart';
 import 'package:rikaz/src/screens/add_post/add_post.dart';
 
+import '../../../on_run_app/router_screens.dart';
 import '../../core/component/widgets/custom_card.dart';
 
 class Home extends StatelessWidget {
@@ -36,10 +38,10 @@ class Home extends StatelessWidget {
         ),
       ),
 
-       floatingActionButton: FloatingActionButton(
-        onPressed: ()=>Navigator.push(context, MaterialPageRoute(builder: (context) => AddPost())),
-         child: const Icon(Icons.add),
-    ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: ()=> context.push(RouterScreens.addPage),
+        child: const Icon(Icons.add),
+      ),
 
     );
   }

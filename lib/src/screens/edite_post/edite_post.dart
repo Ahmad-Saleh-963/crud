@@ -3,6 +3,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rikaz/src/core/component/widgets/text_field.dart';
 import 'package:rikaz/src/core/constants/colors_app.dart';
 
@@ -48,7 +49,7 @@ class _EditePostState extends State<EditePost> {
               CustomTextField(hintText:"الوصف",icon: Icons.text_fields,c:BlocProvider.of<EditeCubit>(context).body,typeInput: TextInputType.text),
               SizedBox(height: height*0.1),
               GestureDetector(
-                onTap: () {BlocProvider.of<EditeCubit>(context).updateData(widget.item,context);},
+                onTap: () =>BlocProvider.of<EditeCubit>(context).updateData(widget.item,context),
                 child: Container(
                   width: width/2,
                   height: 50,

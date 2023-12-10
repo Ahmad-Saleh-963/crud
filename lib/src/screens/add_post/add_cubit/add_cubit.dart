@@ -54,7 +54,7 @@ class AddCubit extends Cubit<AddState> {
          await AppData.db.insertData('INSERT INTO data(id,title, userId, body, idback ) VALUES(${item.id},"${item.title}", ${item.userId},"${item.body}","${item.idback}" )');
          BlocProvider.of<DataCubit>(context).refrechUi();
          clearTextInput();
-         Navigator.pop(context);
+          context.pop();
          emit(AddInitial());
       }
       else{

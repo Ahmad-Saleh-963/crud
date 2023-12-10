@@ -4,6 +4,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../data/data_cubit/data_cubit.dart';
 import '../../../data/models/items_model.dart';
@@ -108,7 +109,7 @@ class CustomCard extends StatelessWidget {
                   child: Builder(
                       builder: (context) {
                         return TextButton(
-                          onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) =>EditePost(item: item)));},
+                          onPressed: ()=>context.push("/edite",extra:item),
                           child: const Text("Edite"),
                         );
                       }

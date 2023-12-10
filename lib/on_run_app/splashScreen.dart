@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:rikaz/on_run_app/router_screens.dart';
 import 'package:rikaz/src/core/constants/colors_app.dart';
 import 'package:rikaz/src/core/constants/data_constant.dart';
 import 'package:rikaz/src/data/data_cubit/data_cubit.dart';
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
   getData()async{
     AppData.initDio();
     BlocProvider.of<DataCubit>(context).getData();
-    Future.delayed(const Duration(seconds:2)).then((value) {context.go("/home");});
+    Future.delayed(const Duration(seconds:2)).then((value) {context.goNamed(RouterScreens.homePage);});
   }
 
   @override
