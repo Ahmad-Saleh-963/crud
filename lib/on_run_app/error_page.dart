@@ -19,19 +19,23 @@ class ErrorOpenPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Lottie.asset("assets/images/error.json", height: height / 5),
-        AutoSizeText(
-          "فشل تحميل الصفحة",
-          style: TextStyle(
-              color: ColorsApp.pcolor,
-              fontWeight: FontWeight.bold,
-              fontSize: 12),
-        )
-      ],
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Lottie.asset("assets/images/error.json", height: height / 5),
+            AutoSizeText(
+              "فشل تحميل الصفحة",
+              style: TextStyle(
+                  color: ColorsApp.pcolor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+            )
+          ],
+        ),
+      ),
     );
   }
 }

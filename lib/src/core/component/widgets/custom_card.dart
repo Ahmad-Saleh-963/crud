@@ -1,5 +1,4 @@
-
-
+// ignore_for_file: must_be_immutable
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:go_router/go_router.dart';
 
 import '../../../data/data_cubit/data_cubit.dart';
 import '../../../data/models/items_model.dart';
-import '../../../screens/edite_post/edite_post.dart';
 import '../../constants/colors_app.dart';
 
 class CustomCard extends StatelessWidget {

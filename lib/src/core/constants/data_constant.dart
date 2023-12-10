@@ -7,7 +7,7 @@ import '../../data/data_server/sqlDb.dart';
 
 class AppData{
 
-  static String baseUrl = "https://crudcrud.com/api/27553dc365a94c01be5bc4ebb8006061/";
+  static String baseUrl = "https://crudcrud.com/api/b7065dfe79bc46b19ced61c6b7a4459f/";
   static late Dio dio;
 
   static SqlLite db = SqlLite();

@@ -11,6 +11,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:rikaz/src/data/models/items_model.dart';
 
 import '../../../core/constants/data_constant.dart';
+import '../../../data/data_bloc/itemsbloc_bloc.dart';
 import '../../../data/data_cubit/data_cubit.dart';
 import '../../../data/data_server/sqlDb.dart';
 
@@ -50,11 +51,12 @@ class AddCubit extends Cubit<AddState> {
       Response response  = await AppData.dio.post("todos",data: jsonEncode(request)  );
       if(response.statusCode == 200 || response.statusCode == 201){
         ItemsModel item = ItemsModel.fromeJson(response.data);
-         BlocProvider.of<DataCubit>(context).items.add(item);
+         BlocProvider.of<ItemsblocBloc>(context).items.add(item);
          await AppData.db.insertData('INSERT INTO data(id,title, userId, body, idback ) VALUES(${item.id},"${item.title}", ${item.userId},"${item.body}","${item.idback}" )');
-         BlocProvider.of<DataCubit>(context).refrechUi();
+         BlocProvider.of<ItemsblocBloc>(context).add(ItemsRefrechUiEvent());
          clearTextInput();
-          context.pop();
+         Navigator.pop(context);
+
          emit(AddInitial());
       }
       else{
